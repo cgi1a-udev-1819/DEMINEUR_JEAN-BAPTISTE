@@ -27,6 +27,12 @@ public class EtatMemoire {
 		}
 	}
 
+	public void getVoisin(JToggleButton button) {
+		int coor = Integer.parseInt(button.getName());
+		int coor2 = coor + 1;
+
+	}
+
 	public void nouveauBoutonSelectionne(JToggleButton button) throws IOException {
 
 		nombreCoups++;
@@ -34,6 +40,7 @@ public class EtatMemoire {
 			if (button.getClientProperty("carte") == "mine") {
 				button.setIcon(ResourceUtility.loadImage("images/mine.png"));
 				System.out.println("miaou");
+				getVoisin(button);
 			} else {
 
 				button.setIcon(ResourceUtility.loadImage("images/vide.png"));

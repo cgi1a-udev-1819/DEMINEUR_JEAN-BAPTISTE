@@ -31,12 +31,14 @@ public class DemineurApp extends FrameForDemoMaker {
 	public void init(JFrame frame) {
 		Container cp = frame.getContentPane();
 		cp.setLayout(new GridLayout(ROW_COUNT, COLUMN_COUNT));
-
+		int count = 0;
 		Deque<ImageIcon> pioche;
 		try {
 			pioche = jeu.creerPioche();
 			for (ImageIcon image : pioche) {
-				cp.add(createButton(image));
+
+				cp.add(createButton(image, count));
+				count++;
 			}
 
 		} catch (IOException e) {
@@ -46,12 +48,13 @@ public class DemineurApp extends FrameForDemoMaker {
 
 	}
 
-	public JComponent createButton(ImageIcon image) {
+	public JComponent createButton(ImageIcon image, int count) {
 
 		ImageIcon imageIcon = image; // Récupération depuis la pioche
 		JToggleButton button = new JToggleButton();
+		button.setName(Integer.toString(count));
 
-		button.setSelectedIcon(imageIcon);
+//		button.setSelectedIcon(imageIcon);
 //		button.setDisabledIcon(imageIcon);
 //		button.setDisabledSelectedIcon(dosCarte);
 
